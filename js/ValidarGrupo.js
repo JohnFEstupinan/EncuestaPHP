@@ -1,0 +1,3 @@
+/*
+Validar que se haya ingresado el grupo en la caja de texto del formulario
+*/
