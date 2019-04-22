@@ -1,3 +1,4 @@
 /*
 Validar que se haya ingresado el grupo en la caja de texto del formulario
+El texto debe ser numerico para poder realizar la validacion
 */
