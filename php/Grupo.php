@@ -1,7 +1,7 @@
 <?php
    include ('conexion.php');
       
-      function ValidarExisteGrupo(){
+   function ValidarExisteGrupo(){
          $Con = new Conexion;
          $CadenaConexion = $Con->ConectarABD();
          
@@ -17,12 +17,27 @@
             }else{
                return 0;
             }
-            
+
          }else{
             header('location: ../index.php');
          }
    }
-   echo "Retorna: ".ValidarExisteGrupo();
+
+   function RedireccionarAEncuesta(){
+      if (ValidarExisteGrupo() == 1){
+         header('location: Encuesta.php');
+      }else{
+         echo "<script>
+                alert('El grupo digitado, NO existe.!, Por Favor Verifique');
+                window.location= '../index.php'
+               </script>";
+         //echo "<script>alert('Usuario insertado exitosamente');</script>";
+         //header('location: ../index.php');
+      }
+
+   }
+   
+   echo "Retorna: ".RedireccionarAEncuesta()();
 ?>
 
 
