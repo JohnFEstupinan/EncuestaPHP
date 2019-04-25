@@ -16,13 +16,8 @@ class Conexion{
             $BaseDeDatos="bdencuesta";
 
             $CadenaDeConexion = mysqli_connect($Server,$User,$Pass,$BaseDeDatos) or die
-            ("Error al conectar con la base de datos");
+            ("Error al conectar con la base de datos".mysqli_error($CadenaDeConexion));
 
-            if(mysqli_connect_errno()){
-                echo "Error en la conexion";
-            }else{
-                echo "Conexion Exitosa..!";
-            }
             return $CadenaDeConexion;
             
            mysqli_close($CadenaDeConexion);
