@@ -21,9 +21,11 @@
          }else{
             header('location: ../index.php');
          }
+
    }
 
    function RedireccionarAEncuesta(){
+      
       if (ValidarExisteGrupo() == 1){
          header('location: Encuesta.php');
       }else{
@@ -31,13 +33,13 @@
                 alert('El grupo digitado, NO existe.!, Por Favor Verifique');
                 window.location= '../index.php'
                </script>";
-         //echo "<script>alert('Usuario insertado exitosamente');</script>";
-         //header('location: ../index.php');
       }
 
    }
    
-   echo "Retorna: ".RedireccionarAEncuesta()();
+   echo "Retorna: ".RedireccionarAEncuesta();
+
+   mysqli_close($CadenaConexion);
 ?>
 
 
