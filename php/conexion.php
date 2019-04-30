@@ -1,31 +1,33 @@
 <?php
-class Conexion{
     /*
-    Clase Conexion
-    Variable $Server -> Contiene el servidor alojando la Base de Datos
-    Variable $User -> Contiene el usuario de la Base de Datos
-    Variable $Pass -> Contiene la contraseña de la Base de Datos
-    Variable $BaseDeDatos -> Contiene el nombre  de la Base de Datos
-    Funcion ConectarABD -> Funcion que realiza la conexion a la BD
+        Es el archivo que contien la configuracion de la Conexion
     */
-    function ConectarABD()
-        {
-            $Server = "localhost";
-            $User = "root";
-            $Pass = "";
-            $BaseDeDatos="bdencuesta";
+    include ('config.php');
+    class Conexion{
+        /*
+        Clase Conexion
+        Variable $Servidor -> Contiene el servidor alojando la Base de Datos
+        Variable $Usuario -> Contiene el usuario de la Base de Datos
+        Variable $Contrasena -> Contiene la contraseña de la Base de Datos
+        Variable $BaseDeDatos -> Contiene el nombre  de la Base de Datos
+        Funcion ConectarABD -> Funcion que realiza la conexion a la BD
+        */
+        function ConectarABD(){
+                $Servidor = Servidor;
+                $Usuario = Usuario;
+                $Contrasena = Contrasena;
+                $BaseDeDatos= BaseDeDatos;
 
-            $CadenaDeConexion = mysqli_connect($Server,$User,$Pass,$BaseDeDatos) or die
-            ("Error al conectar con la base de datos");
+                $CadenaDeConexion = @mysqli_connect($Servidor,$Usuario,$Contrasena)
+                or die ("Error al conectar con la base de datos".@mysqli_error($CadenaDeConexion));
 
-            if(mysqli_connect_errno()){
-                echo "Error en la conexion";
-            }else{
-                echo "Conexion Exitosa..!";
-            }
-            return $CadenaDeConexion;
-            
-           mysqli_close($CadenaDeConexion);
+                @mysqli_select_db($CadenaDeConexion,$BaseDeDatos) 
+                or die ("Error al seleccionar la Base de Datos: ".@mysqli_error($CadenaDeConexion));
+
+                return $CadenaDeConexion;
+                        
         }
+            
     }
+        @mysqli_close($CadenaDeConexion);
 ?>
