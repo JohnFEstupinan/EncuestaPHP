@@ -1,0 +1,39 @@
+<?php
+include ('conexion.php');
+class Prueba{
+       
+    function CantidadProgramacion($grupo){
+        $Con = new Conexion;
+        $CadenaDeConexion = $Con->ConectarABD();
+        
+        $Consulta = "Select * From tbl_asignacion where Num_Grupo = $grupo";
+        $resultado = mysqli_query($CadenaDeConexion,$Consulta);
+
+        while($fila = mysqli_fetch_row($resultado)){
+            echo $fila[0],$fila[1],$fila[2];
+        }
+
+    }
+    function TraerProgramacion(){
+        $Con = new Conexion;
+        $CadenaDeConexion = $Con->ConectarABD();
+
+        $Consulta = "Select * from tbl_asignacion where Num_Grupo = 10";
+        
+        $resultado = mysqli_query($CadenaDeConexion,$Consulta)or
+         die ("Error al realizar a consulta ".mysqli_errono($CadenaDeConexion));
+
+        while($fila = mysqli_fetch_array($resultado,MYSQLI_NUM)){
+            echo $fila[0],$fila[1],$fila[2];
+        }
+    }
+}
+
+
+$prueba = new Prueba;
+$metodo = $prueba->TraerProgramacion();
+
+$metodo = $prueba->CantidadProgramacion(1);
+
+
+?>
