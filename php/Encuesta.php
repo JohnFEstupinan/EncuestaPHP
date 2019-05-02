@@ -1,3 +1,4 @@
 <?php
-    echo "Encuesta";
+    include('Controlador/GrupoControl.php');
+    echo "Estoy en encuesta";
 ?>
