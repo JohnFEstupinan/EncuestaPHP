@@ -1,7 +1,6 @@
 <?php
-    include('conexion.php');
+    include_once('conexion.php');
     
-    class Preguntas{
         function ListarPreguntas(){
     
             $CadenaConexion = ConectarABD();
@@ -14,5 +13,5 @@
       
             return $ResultadoConsulta;
         }
-    }
+    @mysqli_close($CadenaConexion);
 ?>

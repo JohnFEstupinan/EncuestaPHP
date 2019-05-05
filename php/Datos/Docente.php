@@ -1,9 +1,7 @@
 <?php
-    include('conexion.php');
+    include_once('conexion.php');
 
-    class Docente{
-
-        function ObtenerNombreDocentePorId($IdDocente){
+        function ObtenerDocentePorId($IdDocente){
 
             $CadenaConexion = ConectarABD();
 
@@ -12,7 +10,10 @@
             $ResultadoConsulta = @mysqli_query($CadenaConexion,$Consulta)
             or die ("Error en la consulta, verifique: ".@mysqli_error($CadenaConexion));
             
-            return $ResultadoConsulta;
+            while ($Resultado = @mysqli_fetch_array($ResultadoConsulta,MYSQLI_ASSOC)){
+                return $Resultado['NomApell_Docente'];
+            }
+         
         }
-    }
+    @mysqli_close($CadenaConexion);
 ?>
