@@ -22,9 +22,8 @@
                 @mysqli_select_db($CadenaDeConexion,$BaseDeDatos) 
                 or die ("Error al seleccionar la Base de Datos: ".@mysqli_error($CadenaDeConexion));
 
-                return $CadenaDeConexion;
-                      
+                return $CadenaDeConexion;         
         }
             
-        @mysqli_close($CadenaDeConexion);
+    @mysqli_close($CadenaDeConexion);
 ?>

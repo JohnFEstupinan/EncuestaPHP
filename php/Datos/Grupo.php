@@ -14,7 +14,7 @@
 
    }
 
-     function ObtenerIdGrupo($GrupoDigitado){
+   function ObtenerIdGrupo($GrupoDigitado){
          $CadenaConexion = ConectarABD();
 
          $Consulta = "Select Id_Grupo From tbl_grupo where Num_Grupo = $GrupoDigitado";
@@ -26,7 +26,7 @@
          }else{
             return $IdGrupo;
          }
-      }
-
+   }
+   
    @mysqli_close($CadenaConexion);
 ?>
