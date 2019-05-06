@@ -6,6 +6,7 @@
     include_once('C:\xampp\htdocs\ProyectoAmbientesWeb\php\Datos\Asignacion.php');
     include_once('C:\xampp\htdocs\ProyectoAmbientesWeb\php\Datos\Competencia.php');
     include_once('C:\xampp\htdocs\ProyectoAmbientesWeb\php\Datos\Docente.php');
+    include_once('C:\xampp\htdocs\ProyectoAmbientesWeb\php\Presentacion\FrmPreguntas.php');
 ?>
 
 <?php
@@ -57,8 +58,9 @@
             </tbody>
             
         </table>
-<?php
 
+<?php
+        echo FormularioPreguntas();
         }else{
             echo "Revise Grupo";
          /*   echo "

@@ -1,5 +1,5 @@
 <?php
-     include_once('PreguntasControl.php');
+     include_once('C:\xampp\htdocs\ProyectoAmbientesWeb\php\LogicaNegocio\LogicaPreguntas.php');
    
 
     function FormularioPreguntas(){
