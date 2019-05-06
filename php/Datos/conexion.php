@@ -3,9 +3,7 @@
         Es el archivo que contien la configuracion de la Conexion
     */
     include ('config.php');
-    class Conexion{
         /*
-        Clase Conexion
         Variable $Servidor -> Contiene el servidor alojando la Base de Datos
         Variable $Usuario -> Contiene el usuario de la Base de Datos
         Variable $Contrasena -> Contiene la contraseña de la Base de Datos
@@ -24,10 +22,8 @@
                 @mysqli_select_db($CadenaDeConexion,$BaseDeDatos) 
                 or die ("Error al seleccionar la Base de Datos: ".@mysqli_error($CadenaDeConexion));
 
-                return $CadenaDeConexion;
-                        
+                return $CadenaDeConexion;         
         }
             
-    }
-        @mysqli_close($CadenaDeConexion);
+    @mysqli_close($CadenaDeConexion);
 ?>
