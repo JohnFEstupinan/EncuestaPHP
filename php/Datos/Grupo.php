@@ -27,6 +27,23 @@
             return $IdGrupo;
          }
    }
+
+   function ValidarExisteGrupo($GrupoDigitado){
+        
+      $CadenaConexion = ConectarABD();
+
+      $Consulta = "Select * from tbl_grupo Where Num_Grupo = $GrupoDigitado";
+
+      $ResultadoConsulta = @mysqli_query($CadenaConexion,$Consulta)
+      or die ("Error al realizar la consulta: ".@mysqli_error($CadenaConexion));
+
+      if (@mysqli_num_rows($ResultadoConsulta) == 1 ){
+         return true;
+      }else{
+         return false;
+      }
+
+   }
    
    @mysqli_close($CadenaConexion);
 ?>

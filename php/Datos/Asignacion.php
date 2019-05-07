@@ -1,8 +1,9 @@
 <?php
     include_once ('conexion.php');
 
-        function ObtenerCantidadAsignacionPorGrupo($GrupoDigitado){
-        
+
+
+        function ObtenerDatosAsignacionPorGrupo($GrupoDigitado,$IteracionesCompetencia){
             $CadenaConexion = ConectarABD();
 
             $Consulta = "Select * from tbl_asignacion Where Num_Grupo = $GrupoDigitado";
@@ -10,27 +11,21 @@
             $ResultadoConsulta = @mysqli_query($CadenaConexion,$Consulta)
             or die ("Error al realizar la consulta: ".@mysqli_error($CadenaConexion));
 
-            if (@mysqli_num_rows($ResultadoConsulta) > 0 ){
-                 $CantidadDeFilas = @mysqli_num_rows($ResultadoConsulta);
-            }else{
-                 $CantidadDeFilas = 0;
-            }
-            return $CantidadDeFilas;
+                while($Resultado = @mysqli_fetch_array($ResultadoConsulta,MYSQLI_ASSOC)){
+                    return $Resultado;
+                }
         }
 
-        function ObtenerDatosAsignacionPorGrupo($GrupoDigitado){
+        function CantidadDeAsignacionesPorGrupo($GrupoDigitado){
             $CadenaConexion = ConectarABD();
 
-            $Consulta = "Select * from tbl_asignacion Where Num_Grupo = $GrupoDigitado";
+            $Consulta = "SELECT COUNT(Id_Competencia) from tbl_asignacion where Num_Grupo = $GrupoDigitado";
 
             $ResultadoConsulta = @mysqli_query($CadenaConexion,$Consulta)
             or die ("Error al realizar la consulta: ".@mysqli_error($CadenaConexion));
 
-            while($Resultado = @mysqli_fetch_array($ResultadoConsulta,MYSQLI_ASSOC)){
-                return $Resultado;
-            }
-
-            return $Resultado;
+            return $ResultadoConsulta;
         }
     @mysqli_close($CadenaConexion);
+
 ?>
