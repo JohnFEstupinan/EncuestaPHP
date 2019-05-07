@@ -1,0 +1,83 @@
+[33mcommit 976af138cf55eb66687df5fc2829a87527619c54[m[33m ([m[1;36mHEAD -> [m[1;32mRamaTrabajo_John[m[33m)[m
+Author: John Freddy Estupiñan Gomez <johnf-estupinang@unilibre.edu.co>
+Date:   Mon May 6 09:49:33 2019 -0500
+
+    Se realizan ajustes a los archivos y a la logica de programacion
+
+[33mcommit 533c7e1636a11ff3c891d0c33a68db778a920a37[m[33m ([m[1;31morigin/RamaTrabajo_John[m[33m)[m
+Author: John Freddy Estupiñan Gomez <johnf-estupinang@unilibre.edu.co>
+Date:   Sun May 5 20:55:04 2019 -0500
+
+    Se realizan correcciones en la rutas de los archivos
+
+[33mcommit e339b4c10d0eb4145f23b639c5174b97f8d5e35a[m
+Author: John Freddy Estupiñan Gomez <johnf-estupinang@unilibre.edu.co>
+Date:   Sun May 5 18:54:52 2019 -0500
+
+    Se verifica orden de codigo
+
+[33mcommit eb0740d6fcb3233aa534d59c482f4b1fda2495ff[m
+Author: John Freddy Estupiñan Gomez <johnf-estupinang@unilibre.edu.co>
+Date:   Sun May 5 18:47:41 2019 -0500
+
+    Se realizan cambios en la estructura del proyecto junto a la logica de programacion
+
+[33mcommit f6320f577b7a097ed796765d7d60bd367c7f274b[m
+Author: John Freddy Estupiñan Gomez <johnf-estupinang@unilibre.edu.co>
+Date:   Thu May 2 16:16:13 2019 -0500
+
+    Se realizan ajustes a los archivos
+
+[33mcommit 2b1f90bc13fd249d7c7f4109a41951f4269fb0c5[m
+Author: John Freddy Estupiñan Gomez <johnf-estupinang@unilibre.edu.co>
+Date:   Tue Apr 30 14:16:07 2019 -0500
+
+    Se adjunta archivo de configuracion y se modifica la conexion
+
+[33mcommit 0d85ea0a7a4201e2ee03d0b84113cc4b35e63df4[m
+Author: John Freddy Estupiñan Gomez <johnf-estupinang@unilibre.edu.co>
+Date:   Thu Apr 25 13:48:01 2019 -0500
+
+    Se realizan ajustes del proyecto
+
+[33mcommit 5e4979f24e30048d373671b0aac9caf8c2756b0e[m
+Author: John Freddy Estupiñan Gomez <johnf-estupinang@unilibre.edu.co>
+Date:   Thu Apr 25 09:20:01 2019 -0500
+
+    Se modifica nombre del archivo que contiene las funciones para validar y redireccionar los archivos
+
+[33mcommit 0f7010dfaa3c621043af33bfc92cfe4a1fe5f3f5[m
+Author: John Freddy Estupiñan Gomez <johnf-estupinang@unilibre.edu.co>
+Date:   Thu Apr 25 09:06:22 2019 -0500
+
+    Se corrige archivo conexion y se agrega metodo ValidarExisteGrupo
+
+[33mcommit 3454f3f07ee951e7042b5d9f096556dc46be4a7c[m
+Author: John Freddy Estupiñan Gomez <johnf-estupinang@unilibre.edu.co>
+Date:   Mon Apr 22 13:37:55 2019 -0500
+
+    Se ajustan archivos
+
+[33mcommit 4107964fa4ebb0ae19f074c44b69604c82bd16b1[m
+Author: John Freddy Estupiñan Gomez <johnf-estupinang@unilibre.edu.co>
+Date:   Wed Apr 17 11:36:12 2019 -0500
+
+    Se agregar Js paraValidarGrupo con instrucciones
+
+[33mcommit a84937b5979c409046eda9e5662d8d13ba4ca67d[m
+Author: John Freddy Estupiñan Gomez <johnf-estupinang@unilibre.edu.co>
+Date:   Wed Apr 17 11:32:10 2019 -0500
+
+    Se elimina archivo js para ValidarGrupo
+
+[33mcommit 809624f2d1f4cae71f049787165809e60b0bb381[m
+Author: John Freddy Estupiñan Gomez <johnf-estupinang@unilibre.edu.co>
+Date:   Wed Apr 17 10:41:06 2019 -0500
+
+    Se insertan cambios
+
+[33mcommit 83ee6efc179e03fdd4061e3ec1538368b4db97cf[m
+Author: John F Estupiñan <49725892+JohnFEstupinan@users.noreply.github.com>
+Date:   Wed Apr 17 10:31:39 2019 -0500
+
+    Initial commit

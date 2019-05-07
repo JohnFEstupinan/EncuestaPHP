@@ -17,11 +17,11 @@
                 <h2>Digite el grupo al que pertenece</h2>
             </div> 
 
-            <form method="POST" class="FormularioGrupo" action="php/Grupo.php" id="FormularioGrupo">
+            <form method="POST" class="FormularioGrupo" action="php\LogicaNegocio\GrupoControl.php" id="FormularioGrupo">
                 <input class="txtGrupo" id="txtGrupo" name="Grupo" type="text" required>
                 
                 <div class="ContenedorBoton">
-                     <input class="btnEnviar" type="submit" name="Ingresar", value="Ingresar">
+                     <input class="btnEnviar" type="submit" name="Ingresar"  value="Ingresar">
                 </div>
 
             </form>
