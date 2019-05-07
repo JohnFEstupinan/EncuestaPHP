@@ -15,32 +15,39 @@
                 include_once('C:\xampp\htdocs\ProyectoAmbientesWeb\php\Datos\Asignacion.php');
                 include_once('C:\xampp\htdocs\ProyectoAmbientesWeb\php\Datos\Competencia.php');
                 include_once('C:\xampp\htdocs\ProyectoAmbientesWeb\php\Datos\Docente.php');
+                include_once('LogicaEncuesta.php');
+                include_once('LogicaGrupo.php');
                 include_once('C:\xampp\htdocs\ProyectoAmbientesWeb\php\Presentacion\FrmPreguntas.php');
             ?>
 
             <?php
                     $GrupoDigitado = $_POST['Grupo'];
                     $respuesta = isset($_POST['respuesta']) ? $_POST['respuesta'] : null;
-                    
-                    $ArrayDatosAsignacion = ObtenerDatosAsignacionPorGrupo($GrupoDigitado);    
-                    $CantidadIteracionEncuestas = ObtenerCantidadAsignacionPorGrupo($GrupoDigitado);
-                    $IdGrupo = ObtenerIdGrupo($GrupoDigitado);
+                    $IteracionCompetencia = isset($_POST['IteracionesCompetencia']) ? $_POST['IteracionesCompetencia'] : null;
+                    $IdCompetencia = isset($_POST['IdCompetencia']) ? $_POST['IdCompetencia'] : null;
+                    $IdDocente = isset($_POST['IdDocente']) ? $_POST['IdDocente'] : null;
 
-                    $IdCompetencia ="";
+                    $ArrayDatosAsignacion = ObtenerDatosAsignacionPorGrupo($GrupoDigitado,$IteracionCompetencia);    
+                    $ValidarExisteGrupo = ValidarExisteGrupoLogica($GrupoDigitado);
 
-                    if($CantidadIteracionEncuestas > 0){
+                    if($ValidarExisteGrupo){
+
+                        $IdGrupo = ObtenerIdGrupo($GrupoDigitado);
+                        $CantidadAsignacion = CantidadDeAsignacionesPorGrupoLogica($GrupoDigitado);
+
                         echo "<h2>Datos Encuesta<br/></h2>";
                         echo "Grupo: ".$IdGrupo."<br/>";
 
-                    if($respuesta != null){
-                        echo "Hola";
-                        //guardar_encuesta();
-                    }
+                        if($respuesta != null){
+                            GuardarEncuestaLogica($GrupoDigitado,$IdCompetencia,$IdDocente);
+                        }
 
-                    $Asignacion = ObtenerDatosAsignacionPorGrupo($GrupoDigitado);
+             
+                    
+                        $Asignacion = ObtenerDatosAsignacionPorGrupo($GrupoDigitado,$IteracionCompetencia);
 
-                    $IdCompetencia = $Asignacion['Id_Competencia'];
-                    $IdDocente = $Asignacion['Id_Docente'];
+                        $IdCompetencia = $Asignacion['Id_Competencia'];
+                        $IdDocente = $Asignacion['Id_Docente'];
 
 
 
@@ -61,6 +68,10 @@
                             echo "Competencia: ".$NombreCompetencia."<br/>";
                             echo "Docente: ".$NombreDocente."<br/>";
                             $TraerPreguntas = RetornaPreguntas();
+
+                           
+                       
+                            
                         }
                 ?>
     
@@ -85,12 +96,11 @@
                 <input name="Grupo" type="text" value="<?php echo $GrupoDigitado ?>">
                 <input name="IdCompetencia" type="text" value="<?php echo $IdCompetencia ?>">
                 <input name="IdDocente" type="text" value="<?php echo $IdDocente ?>">
-                <input name="IteracionesCompetencia" type="text" value="<?php echo $GrupoDigitado ?>">
+                <input name="IteracionesCompetencia" type="text" value=<?php echo (++$IteracionCompetencia) ?>>
                 <input name="Enviar" type="submit" value="Enviar Encuesta">
                 <?php
                     }
                 ?>
-
             </form>
     </body>
 </html>
