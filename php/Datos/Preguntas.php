@@ -13,5 +13,6 @@
       
             return $ResultadoConsulta;
         }
+        
     @mysqli_close($CadenaConexion);
 ?>

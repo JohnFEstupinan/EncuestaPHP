@@ -7,6 +7,7 @@
         </title>
     </head>
     <body>
+        
             <?php
                 /*
                     Archivos que hacen referencia a las funciones necesarias
@@ -21,16 +22,14 @@
             ?>
 
             <?php
+                    
                     $GrupoDigitado = $_POST['Grupo'];
                     $respuesta = isset($_POST['respuesta']) ? $_POST['respuesta'] : null;
-                    $IteracionCompetencia = isset($_POST['IteracionesCompetencia']) ? $_POST['IteracionesCompetencia'] : null;
+                    $IteracionCompetencia = isset($_POST['IteracionesCompetencia']) ? $_POST['IteracionesCompetencia'] : 0;
                     $IdCompetencia = isset($_POST['IdCompetencia']) ? $_POST['IdCompetencia'] : null;
                     $IdDocente = isset($_POST['IdDocente']) ? $_POST['IdDocente'] : null;
 
-                    $ArrayDatosAsignacion = ObtenerDatosAsignacionPorGrupo($GrupoDigitado,$IteracionCompetencia);    
-                    $ValidarExisteGrupo = ValidarExisteGrupoLogica($GrupoDigitado);
-
-                    if($ValidarExisteGrupo){
+                    if(ValidarExisteGrupoLogica($GrupoDigitado)){
 
                         $IdGrupo = ObtenerIdGrupo($GrupoDigitado);
                         $CantidadAsignacion = CantidadDeAsignacionesPorGrupoLogica($GrupoDigitado);
@@ -39,27 +38,20 @@
                         echo "Grupo: ".$IdGrupo."<br/>";
 
                         if($respuesta != null){
-                            GuardarEncuestaLogica($GrupoDigitado,$IdCompetencia,$IdDocente);
+                            GuardarEncuestaLogica($GrupoDigitado,$IdCompetencia,$IdDocente,$Respuesta);
                         }
 
-             
-                    
                         $Asignacion = ObtenerDatosAsignacionPorGrupo($GrupoDigitado,$IteracionCompetencia);
 
                         $IdCompetencia = $Asignacion['Id_Competencia'];
                         $IdDocente = $Asignacion['Id_Docente'];
 
-
-
                         if($IdCompetencia == ""){
-
                             echo "Termino la Encuesta";
             ?>
-
                             <form  action="..\..\index.php" method="POST">
                                 <input type="submit" name="Volver" value="Nueva Encuesta">    
                             </form>
-
                 <?php   
                             die;    
                         }else{
@@ -68,39 +60,25 @@
                             echo "Competencia: ".$NombreCompetencia."<br/>";
                             echo "Docente: ".$NombreDocente."<br/>";
                             $TraerPreguntas = RetornaPreguntas();
-
-                           
-                       
-                            
                         }
                 ?>
-    
             <?php
                     
                     }else{
                         echo "<script>alert('No Existe Grupo, Verifique..!');
                         </script>";
-                    // header('location: ..\..\index.php');
-                    
                     }
-                
             ?>
 
             <form action="GrupoControl.php" method="POST">
-                <?php
-                    if($IdCompetencia != ""){
-                        MostrarPreguntas($TraerPreguntas);
-                        
+                <?php                    
+                        MostrarPreguntas($TraerPreguntas);                        
                 ?>
-                
-                <input name="Grupo" type="text" value="<?php echo $GrupoDigitado ?>">
-                <input name="IdCompetencia" type="text" value="<?php echo $IdCompetencia ?>">
-                <input name="IdDocente" type="text" value="<?php echo $IdDocente ?>">
-                <input name="IteracionesCompetencia" type="text" value=<?php echo (++$IteracionCompetencia) ?>>
+                <input name="Grupo" type="hidden" value="<?php echo $GrupoDigitado ?>">
+                <input name="IdCompetencia" type="hidden" value="<?php echo $IdCompetencia ?>">
+                <input name="IdDocente" type="hidden" value="<?php echo $IdDocente ?>">
+                <input name="IteracionesCompetencia" type="hidden" value=<?php echo (++$IteracionCompetencia) ?>>
                 <input name="Enviar" type="submit" value="Enviar Encuesta">
-                <?php
-                    }
-                ?>
             </form>
     </body>
 </html>
