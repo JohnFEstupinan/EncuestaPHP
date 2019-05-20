@@ -14,19 +14,19 @@
     border:  none;
     border-bottom: solid #c8c8c8 .2rem;
     transition: all 2s;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .btnEnviar{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     width: auto;
     border-bottom: none;
-    background-color: #31b1e5;
+    background-color: #1674c2;
     color: white;
     cursor: pointer;    
 }
 
 .btnEnviar:hover{
-    background-color: #1674c2;
+    background-color: #31b1e5;
     cursor: pointer;
 }

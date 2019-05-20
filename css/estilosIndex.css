@@ -8,27 +8,22 @@ body{
     max-width: 450px;
     height: auto;
     background-color: #EFEFEF;
-    margin: 5% auto;
-    padding-bottom: 1rem;
-}
-
-.ContenedorFormulario{      
+    margin: 15% auto;
+    padding-bottom: 1rem;     
     width: 100%;
     text-align: center;
     padding: 2rem 0 1rem;
-    /*border-top: solid;*/
-    margin-bottom: 1rem;
     border-radius: 0.5rem;
 }
 
 .TituloEncuesta{
-    color: rgb(128, 126, 126);
+    color: rgb(85, 82, 82);
     font-size: 30px;
     text-align: center;
+    font-weight: bold;
 }
 
 .EncabezadoFormulario h2{
-    font-weight: bold;
     color: rgb(128, 126, 126);
     font-size: 18px;       
 }

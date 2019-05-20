@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../../css/estilosBotonEnviarEncuesta.css" type="text/css" />
         <link rel="stylesheet" href="../../css/estilosVolverAEncuesta.css" type="text/css" />
+        <link rel="icon" type="image/png" href="..\..\IconImages\IconoEncuesta.png" />
         <title>
             Encuesta
         </title>

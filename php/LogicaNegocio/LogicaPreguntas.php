@@ -56,7 +56,7 @@
 
                 <tr>
                     <td colspan="3">
-                        <textarea class="TextAreaOB" rows="10" cols="50" placeholder="OBSERVACIONES" name="Respuesta[<?php $row['Id_Preguntas']?>]"></textarea>
+                        <textarea class="TextAreaOB"  placeholder="OBSERVACIONES" name="Respuesta[<?php $row['Id_Preguntas']?>]"></textarea>
                     </td>
                 </tr>
                     <?php   }                               
