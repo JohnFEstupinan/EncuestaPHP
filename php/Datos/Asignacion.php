@@ -6,14 +6,14 @@
         function ObtenerDatosAsignacionPorGrupo($GrupoDigitado,$IteracionesCompetencia){
             $CadenaConexion = ConectarABD();
 
-            $Consulta = "Select * from tbl_asignacion Where Num_Grupo = $GrupoDigitado";
-
+            $Consulta = "Select * from tbl_asignacion Where Num_Grupo = $GrupoDigitado order by Id_Competencia Limit $IteracionesCompetencia , 1 ";
+            
             $ResultadoConsulta = @mysqli_query($CadenaConexion,$Consulta)
             or die ("Error al realizar la consulta: ".@mysqli_error($CadenaConexion));
 
-                while($Resultado = @mysqli_fetch_array($ResultadoConsulta,MYSQLI_ASSOC)){
-                    return $Resultado;
-                }
+            $Fila = @mysqli_fetch_array($ResultadoConsulta,MYSQLI_ASSOC);
+                
+            return $Fila;
         }
 
         function CantidadDeAsignacionesPorGrupo($GrupoDigitado){
@@ -26,6 +26,6 @@
 
             return $ResultadoConsulta;
         }
-    @mysqli_close($CadenaConexion);
 
+    @mysqli_close($CadenaConexion);
 ?>
