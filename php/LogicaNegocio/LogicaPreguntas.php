@@ -32,36 +32,32 @@
             
             <tbody>        
                 <?php   foreach ($ResultadoRetornarPreguntas as $row) {
+                    $IdPregunta = $row['Id_Preguntas'];
+                    echo "ID PReguntas: ".$IdPregunta;
                             if($row['Tipo_Pregunta'] == 1){
                 ?>  
                 <tr>
-                                <td class="TipoDeDatoP"> <?php echo $row['Id_Preguntas'] ?></td>
-                                <td class="TipoDeDato"> <?php echo $row['Pregunta'] ?></td>
-                                <td>
-                                    <select name="Respuesta[<?php $row['Id_Preguntas']?>]" class="ComboValoracion">                       
-                                        <option value="1">Nunca</option>
-                                        <option value="2">Casi Nunca</option>
-                                        <option value="3">A Veces</option>
-                                        <option value="4">Casi Siempre</option>
-                                        <option value="5">Siempre</option>
-                                    </select>
-                                </td>
-                </tr>
-                <?php       }else{ ?>
-
-                <tr>
-                    <td class="TipoDeDatoP"> <?php echo $row['Id_Preguntas'] ?></td>
-                    <td colspan="2" class="TipoDeDatoOB"> <?php echo $row['Pregunta'] ?></td>                                    
-                </tr>
-
-                <tr>
-                    <td colspan="3">
-                        <textarea class="TextAreaOB"  placeholder="OBSERVACIONES" name="Respuesta[<?php $row['Id_Preguntas']?>]"></textarea>
+                    <td class="TipoDeDatoP"> <?php echo $IdPregunta; ?></td>
+                    <td class="TipoDeDato"> <?php echo $row['Pregunta'];?></td>
+                    <td>
+                        <select name="Respuesta[<?php echo $IdPregunta;?>]" class="ComboValoracion">                       
+                            <option value="1">Nunca</option>
+                            <option value="2">Casi Nunca</option>
+                            <option value="3">A Veces</option>
+                            <option value="4">Casi Siempre</option>
+                            <option value="5">Siempre</option>
+                        </select>
                     </td>
                 </tr>
-                    <?php   }                               
+                <?php       }else{ ?>
+                <tr>
+                    <td colspan="3">
+                        <input type="text" class="TextAreaOB"  placeholder="OBSERVACIONES" name="Respuesta[<?php echo $IdPregunta; ?>]">
+                    </td>
+                </tr>
+                <?php       }                               
                         }
-                    ?>
+                ?>
             </tbody>
         </table>
                     
