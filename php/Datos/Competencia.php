@@ -14,5 +14,6 @@
                return $Resultado['Nom_Competencia'];
            }
         }
+        
     @mysqli_close($CadenaConexion);
 ?>

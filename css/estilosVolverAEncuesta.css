@@ -1,0 +1,103 @@
+.ContenedorFormulario{
+    max-width: 450px;
+    height: 350;
+    background-color: #EFEFEF;
+    margin: 15% auto;
+    padding-bottom: 1rem;
+    width: 100%;
+    text-align: center;
+    padding: 2rem 0 1rem;
+    border-radius: 0.5rem;
+}
+
+.EncabezadoFormulario h2{
+    font-weight: bold;
+    color: rgb(128, 126, 126);
+    font-size: 26px;       
+}
+
+.EncabezadoFormularioE h2{
+    font-weight: bold;
+    color: rgb(218, 55, 55);
+    font-size: 26px;       
+}
+
+.FormularioVolver{
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.ContenedorBoton{
+    padding: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.btnVolver{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.btnVolver{
+    background-color: #EFEFEF;
+    border:  none;
+    border-bottom: solid #c8c8c8 .2rem;
+    transition: all 1s;
+    font-size: 16px;
+}
+
+.btnVolver{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: auto;
+    border-bottom: none;
+    background-color: #31b1e5;
+    color: white;
+    cursor: pointer;    
+}
+
+.btnVolver:hover{
+    background-color: #1674c2;
+    cursor: pointer;
+}
+
+/* Boton Volver Cuando Hay Error */
+
+.btnVolverE{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.btnVolverE{
+    background-color: #EFEFEF;
+    border:  none;
+    border-bottom: solid #c8c8c8 .2rem;
+    transition: all 1s;
+    font-size: 16px;
+}
+
+.btnVolverE{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: auto;
+    border-bottom: none;
+    background-color: #f08181;
+    color: white;
+    cursor: pointer;    
+}
+
+.btnVolverE:hover{
+    background-color: #c21616;
+    cursor: pointer;
+}

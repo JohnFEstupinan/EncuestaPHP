@@ -5,12 +5,14 @@
       
       $CadenaConexion = ConectarABD();
 
-      $Consulta = "Select * From tbl_grupo Where $GrupoDigitado";
+      $Consulta = "Select Id_Grupo From tbl_grupo Where $GrupoDigitado";
 
       $RespuestaConsulta = @mysqli_query($CadenaConexion,$Consulta) 
       or die ("Error al realizar la consulta: ".@mysqli_error($CadenaConexion));
 
-      return $RespuestaConsulta;
+      while ($Fila = @mysqli_fetch_array($RespuestaConsulta,MYSQLI_ASSOC)){
+         return $Fila["Id_Grupo"];
+      }      
 
    }
 

@@ -1,0 +1,101 @@
+body{
+    font-size: 16px;
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+}
+
+.DatosPreguntas{
+    width: 100%;
+    margin-top: 0.5%;
+    border: none;
+    /*border: black 1px solid*/
+}
+
+.TituloDatosPreguntas{
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    background-color: rgb(31, 78, 120);
+    color: white;
+}
+
+.DatoP{
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;    
+    background-color: rgb(31, 78, 120);
+    color: white;
+    font-size: 18px;
+    text-align: center;
+}
+
+.TipoDeDato{
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+    background-color: rgb(242,242,242);
+
+}
+.TipoDeDatoP{
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+    background-color: rgb(242,242,242);
+    text-align:  center;
+}
+.TipoDeDatoOB{
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+    background-color: rgb(242,242,242);
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/*Estilos Combo Valoracion*/
+
+select {
+    text-align: center;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: rgb(242,242,242);
+    height: 35px;
+    width: 130px;
+ }
+
+.ComboValoracion {	
+    border:1px solid #d9d9d9;
+    overflow: hidden;
+    position:relative;
+    text-align: center;
+ }
+
+ .ComboValoracion:hover{
+     background-color: rgb(219,219,219);
+
+     font-weight: bold;
+     cursor: pointer;
+ }
+ .ComboValoracion{
+    transition: all 2s;
+}
+
+ select:focus{ outline: none;}
+ 
+ .ComboValoracion::after{
+    text-align: center;
+    display:table-cell;
+    background-color:  rgb(242,242,242);
+    position:absolute;
+ }
+
+ /*Estilos Campo Observaciones*/
+ .TextAreaOB{
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+    width: 96%;
+    height: 20%;
+
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+
+    border-radius: 10px;
+    font-size: 16px;
+ }
