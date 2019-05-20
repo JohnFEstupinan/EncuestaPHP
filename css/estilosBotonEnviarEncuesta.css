@@ -1,0 +1,32 @@
+.btnEnviar{
+    align-self: center;
+    display: flex;
+    justify-content: space-around;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    margin-left: 45%;
+    margin-right: 45%;
+}
+
+.btnEnviar{
+    background-color: #EFEFEF;
+    border:  none;
+    border-bottom: solid #c8c8c8 .2rem;
+    transition: all 2s;
+    font-size: 16px;
+}
+
+.btnEnviar{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: auto;
+    border-bottom: none;
+    background-color: #31b1e5;
+    color: white;
+    cursor: pointer;    
+}
+
+.btnEnviar:hover{
+    background-color: #1674c2;
+    cursor: pointer;
+}

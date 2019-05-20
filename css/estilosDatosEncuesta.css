@@ -1,0 +1,28 @@
+body{
+    font-size: 16px;
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+}
+
+.DatosEncuesta{
+    margin-top: 0%;
+    width: 100%;
+    border: none;
+}
+
+.TituloDatosEncuesta{
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    background-color: rgb(31, 78, 120);
+    color: white;
+}
+
+.Dato{
+    font-weight: bold;
+    background-color: rgb(31, 78, 120);
+    color: white;
+}
+
+.TipoDeDato{
+    background-color: rgb(242,242,242);
+}

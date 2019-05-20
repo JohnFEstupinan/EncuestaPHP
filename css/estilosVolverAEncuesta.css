@@ -1,9 +1,3 @@
-body{
-    font-size: 16px;
-    font-family: 'Lato', sans-serif;
-}
-
-
 .ContenedorFormulario{
     max-width: 450px;
     height: auto;
@@ -21,19 +15,19 @@ body{
     border-radius: 0.5rem;
 }
 
-.TituloEncuesta{
-    color: rgb(128, 126, 126);
-    font-size: 30px;
-    text-align: center;
-}
-
 .EncabezadoFormulario h2{
     font-weight: bold;
     color: rgb(128, 126, 126);
     font-size: 18px;       
 }
 
-.FormularioGrupo{
+.EncabezadoFormularioE h2{
+    font-weight: bold;
+    color: rgb(218, 55, 55);
+    font-size: 18px;       
+}
+
+.FormularioVolver{
     padding: 0 2rem;
     display: flex;
     flex-direction: column;
@@ -47,7 +41,7 @@ body{
     justify-content: center;
 }
 
-.btnEnviar{
+.btnVolver{
     display: flex;
     justify-content: space-around;
     margin-top: 1rem;
@@ -57,13 +51,7 @@ body{
     cursor: pointer;
 }
 
-.txtGrupo{
-    padding: 0.5rem;
-    margin: 0.5rem;
-    text-align: center;
-}
-
-.txtGrupo, .btnEnviar{
+.btnVolver{
     background-color: #EFEFEF;
     border:  none;
     border-bottom: solid #c8c8c8 .2rem;
@@ -71,21 +59,50 @@ body{
     font-size: 16px;
 }
 
-.txtGrupo:focus{
-    text-align: center;
-    border-bottom: solid rgb(8, 59, 88) .2rem;
-}
-
-.btnEnviar{
+.btnVolver{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     width: auto;
     border-bottom: none;
-    background-color: #31b1e5;
+    background-color: #f08181;
     color: white;
     cursor: pointer;    
 }
 
-.btnEnviar:hover{
-    background-color: #1674c2;
+.btnVolver:hover{
+    background-color: #c21616;
+    cursor: pointer;
+}
+
+/* Boton Volver Cuando Hay Error */
+
+.btnVolverE{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.btnVolverE{
+    background-color: #EFEFEF;
+    border:  none;
+    border-bottom: solid #c8c8c8 .2rem;
+    transition: all 2s;
+    font-size: 16px;
+}
+
+.btnVolverE{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: auto;
+    border-bottom: none;
+    background-color: #e53131;
+    color: white;
+    cursor: pointer;    
+}
+
+.btnVolverE:hover{
+    background-color: #c21616;
     cursor: pointer;
 }

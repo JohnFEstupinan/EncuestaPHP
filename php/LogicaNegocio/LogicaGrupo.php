@@ -5,9 +5,44 @@
         return ValidarExisteGrupo($GrupoDigitado);
     }
 
-    function CantidadDeAsignacionesPorGrupoLogica($GrupoDigitado){
-        while ($Cantidad = @mysqli_fetch_array(CantidadDeAsignacionesPorGrupo($GrupoDigitado),MYSQLI_ASSOC)){
-            return $Cantidad['COUNT(Id_Competencia)'];
-        }
+    function ObtenerIdGrupoLogica($GrupoDigitado){
+        
+        return ObtenerIdGrupo($GrupoDigitado);
+    }
+
+    function MostrarDatosEncuesta($Grupo,$NombreCompetencia,$NombreDocente){
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="../../css/estilosDatosEncuesta.css" type="text/css" />
+    </head>
+    <body>
+        <table  class="DatosEncuesta">
+            <thead>
+                <tr>
+                    <td colspan="2" class="TituloDatosEncuesta">Datos Encuesta</td> 
+                </tr>
+            </thead>
+                            
+            <tbody>
+                <tr>
+                    <td class="Dato">Grupo:</td>
+                    <td class="TipoDeDato"> <?php echo $Grupo ?> </td>
+                </tr>
+                <tr>
+                    <td class="Dato">Competencia:</td>
+                    <td class="TipoDeDato"> <?php echo $NombreCompetencia ?> </td>
+                </tr>
+                <tr>
+                    <td class="Dato">Docente:</td>
+                    <td class="TipoDeDato"> <?php echo $NombreDocente ?> </td>
+                </tr>                
+            </tbody>
+        </table>
+    </body>
+</html> 
+<?php
     }
 ?>
