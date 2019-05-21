@@ -25,6 +25,24 @@
                 </div>
 
             </form>
-        </div>    
+        </div>   
+        
+        <div class="ContenedorFormulario">
+            <div class="ContenedorTitulo">
+                <p class="TituloEncuesta">Consultar Datos</p>
+            </div>
+            <div class="EncabezadoFormulario">
+                <h2>Digite la Identificacion del Docente</h2>
+            </div> 
+
+            <form method="POST" class="FormularioGrupo" action="php\LogicaNegocio\LogicaReporte.php" id="FormularioGrupo">
+                <input class="txtGrupo" id="txtDocente" name="Docente" type="text" required>
+                
+                <div class="ContenedorBoton">
+                     <input class="btnEnviar" type="submit" name="Ingresar"  value="Consultar Datos">
+                </div>
+
+            </form>
+        </div>
     </body>
 </html>
