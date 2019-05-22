@@ -5,9 +5,10 @@
         $CadenaConexion = ConectarABD();
 
         foreach ($Respuesta as $IdPregunta => $ValorPregunta) {
-        $Consulta =  "INSERT INTO tbl_copiaen (Num_Grupo,Id_Competencia,Id_Docente,Id_Preguntas,Evaluacion) VALUES ($GrupoDigitado,$IdCompetencia,$IdDocente,$IdPregunta,'$ValorPregunta')";
-        @mysqli_query($CadenaConexion, $Consulta) or die("Error al guardar la encuesta en la BD,
-        revisar la consulta: " .@mysqli_error($CadenaConexion));
+            $Consulta =  "INSERT INTO tbl_copiaen (Num_Grupo,Id_Competencia,Id_Docente,Id_Preguntas,Evaluacion) VALUES ($GrupoDigitado,$IdCompetencia,$IdDocente,$IdPregunta,'$ValorPregunta')";
+
+            @mysqli_query($CadenaConexion, $Consulta) or die("Error al guardar la encuesta en la BD,
+            revisar la consulta: " .@mysqli_error($CadenaConexion));
         }
     
     }
@@ -48,27 +49,19 @@
     function ValidarSiExisteEncuesta($Id_Docente){
         $CadenaConexion = ConectarABD();
 
-        $Consulta = "SELECT * FROM `tbl_copiaen` WHERE Id_Docente = $Id_Docente";
-
-   
+        $Consulta = "SELECT * FROM `tbl_copiaen` WHERE Id_Docente = $Id_Docente";   
 
         $ResultadoConsulta = @mysqli_query($CadenaConexion,$Consulta) 
         or die ("Error al intentar validar si existe la encuesta: ".@mysqli_error($CadenaConexion));
      
-
         $can = @mysqli_fetch_row($ResultadoConsulta);
 
-
-            if($can != ""){
-                return true;
-            }else{
-                return false;
-            }
-          
-
-
+        if($can != ""){
+            return true;
+        }else{
+            return false;
+        }
     }
-       
-
+      
     @mysqli_close($CadenaConexion);
 ?>

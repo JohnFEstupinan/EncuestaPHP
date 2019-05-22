@@ -10,7 +10,7 @@
             $ResultadoConsulta = @mysqli_query($CadenaConexion,$Consulta)
             or die ("Error en la consulta, verifique: ".@mysqli_error($CadenaConexion));
 
-           while ($Resultado = @mysqli_fetch_array($ResultadoConsulta,MYSQLI_ASSOC)){
+           while($Resultado =  @mysqli_fetch_array($ResultadoConsulta,MYSQLI_ASSOC)){
                return $Resultado['Nom_Competencia'];
            }
         }

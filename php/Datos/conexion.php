@@ -1,8 +1,8 @@
 <?php
-    /*
-        Es el archivo que contien la configuracion de la Conexion
-    */
-    include ('config.php');
+        /*
+            Es el archivo que contien la configuracion de la Conexion
+        */
+        include ('config.php');
         /*
         Variable $Servidor -> Contiene el servidor alojando la Base de Datos
         Variable $Usuario -> Contiene el usuario de la Base de Datos
