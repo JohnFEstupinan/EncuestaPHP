@@ -1,5 +1,5 @@
 <?php
-    include_once('C:\xampp\htdocs\ProyectoAmbientesWeb\php\Datos\Preguntas.php');
+    include_once('..\Datos\Preguntas.php');
 
     function RetornaPreguntas(){
             return ListarPreguntas();

@@ -10,7 +10,7 @@
       $RespuestaConsulta = @mysqli_query($CadenaConexion,$Consulta) 
       or die ("Error al realizar la consulta: ".@mysqli_error($CadenaConexion));
 
-      while ($Fila = @mysqli_fetch_array($RespuestaConsulta,MYSQLI_ASSOC)){
+      foreach(@mysqli_fetch_array($RespuestaConsulta,MYSQLI_ASSOC) as $Fila){
          return $Fila["Id_Grupo"];
       }      
 
