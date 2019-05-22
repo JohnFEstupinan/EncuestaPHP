@@ -21,7 +21,8 @@
                 include_once('C:\xampp\htdocs\ProyectoAmbientesWeb\php\Datos\Docente.php');
                 include_once('LogicaEncuesta.php');
                 include_once('LogicaGrupo.php');
-                include_once('C:\xampp\htdocs\ProyectoAmbientesWeb\php\Presentacion\FrmPreguntas.php');
+                include_once('LogicaPreguntas.php');
+                //include_once('C:\xampp\htdocs\ProyectoAmbientesWeb\php\Presentacion\FrmPreguntas.php');
             ?>
 
             <?php
@@ -34,10 +35,8 @@
 
                     if(ValidarExisteGrupoLogica($GrupoDigitado)){            
                         $Grupo = ObtenerIdGrupoLogica($GrupoDigitado);
-            ?>
            
 
-            <?php
                         if($Respuesta != null){                            
                             GuardarEncuestaLogica($GrupoDigitado,$IdCompetencia,$IdDocente,$Respuesta);
                         }
@@ -48,48 +47,19 @@
                         $IdDocente = $Asignacion['Id_Docente'];
 
                         if($IdCompetencia == ""){
-            ?>
-                            <div class="ContenedorFormulario">
-                                <div class="EncabezadoFormulario">
-                                    <h2>Muchas Gracias</h2>
-                                    <h2>Termino la Encuesta</h2>
-                                </div> 
-
-                                <form method="POST" class="FormularioVolver" action="..\..\index.php" id="FormularioGrupo">
-                                    <div class="ContenedorBoton">
-                                        <input class="btnVolver" type="submit" name="Volver"  value="Volver">
-                                    </div>
-                                </form>
-                            </div>                             
-                <?php   
+                            header('location: ..\Presentacion\FrmEncuestaTerminada.php');
+        
                             die;    
                         }else{
                             $NombreCompetencia = ObtenerCompetenciaPorId($IdCompetencia);
                             $NombreDocente = ObtenerDocentePorId($IdDocente);
                             $TraerPreguntas = RetornaPreguntas();
-                        }
-                ?>
-            <?php
-                    
+                        }                    
                     }else{
-                       
-            ?>            
-                        <div class="ContenedorFormulario">
-                            <div class="EncabezadoFormularioE">
-                                    <h2>¡..Error al Ingresar Grupo..!</h2>
-                                    <h2>¡Por Favor, Verifique!</h2>
-                            </div> 
-                            <form method="POST" class="FormularioVolver" action="..\..\index.php" id="FormularioGrupo">
-                                <div class="ContenedorBoton">
-                                    <input class="btnVolverE" type="submit" name="Volver"  value="Volver">
-                                </div>
-                            </form>
-                        </div> 
-            <?php    
-                    die;        
+                        header('location: ..\Presentacion\FrmErrorIngresarGrupo.php');
+                        die;        
                     }
             ?>
-
             <form action="GrupoControl.php" method="POST">
                 <?php
                         MostrarDatosEncuesta($Grupo,$NombreCompetencia,$NombreDocente);                    

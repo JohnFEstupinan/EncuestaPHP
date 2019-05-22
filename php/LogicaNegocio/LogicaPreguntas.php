@@ -33,7 +33,7 @@
             <tbody>        
                 <?php   foreach ($ResultadoRetornarPreguntas as $row) {
                     $IdPregunta = $row['Id_Preguntas'];
-                    echo "ID PReguntas: ".$IdPregunta;
+                   
                             if($row['Tipo_Pregunta'] == 1){
                 ?>  
                 <tr>
