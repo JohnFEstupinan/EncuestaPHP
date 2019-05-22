@@ -45,23 +45,28 @@
         return $ResultadoConsulta;
     }
 
-        function ValidarSiExisteEncuesta($Id_Docente){
+    function ValidarSiExisteEncuesta($Id_Docente){
         $CadenaConexion = ConectarABD();
 
         $Consulta = "SELECT * FROM `tbl_copiaen` WHERE Id_Docente = $Id_Docente";
 
-        echo "cons: ".$Consulta;
+   
 
         $ResultadoConsulta = @mysqli_query($CadenaConexion,$Consulta) 
         or die ("Error al intentar validar si existe la encuesta: ".@mysqli_error($CadenaConexion));
+     
 
-        foreach($ResultadoConsulta as $Fila){
-            echo "dsd".$Fila["Num_Grupo"];
-        }
+        $can = @mysqli_fetch_row($ResultadoConsulta);
 
-        $cf = @mysqli_num_rows($ResultadoConsulta) or die ("Error al num filas".@mysqli_error($CadenaConexion));
-        echo "dsdas".$cf;
-       return $cf;
+
+            if($can != ""){
+                return true;
+            }else{
+                return false;
+            }
+          
+
+
     }
        
 
