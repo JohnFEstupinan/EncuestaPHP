@@ -15,10 +15,10 @@
                 /*
                     Archivos que hacen referencia a las funciones necesarias
                 */
-                include_once('C:\xampp\htdocs\ProyectoAmbientesWeb\php\Datos\Grupo.php');
-                include_once('C:\xampp\htdocs\ProyectoAmbientesWeb\php\Datos\Asignacion.php');
-                include_once('C:\xampp\htdocs\ProyectoAmbientesWeb\php\Datos\Competencia.php');
-                include_once('C:\xampp\htdocs\ProyectoAmbientesWeb\php\Datos\Docente.php');
+                include_once('..\Datos\Grupo.php');
+                include_once('..\Datos\Asignacion.php');
+                include_once('..\Datos\Competencia.php');
+                include_once('..\Datos\Docente.php');
                 include_once('LogicaEncuesta.php');
                 include_once('LogicaGrupo.php');
                 include_once('LogicaPreguntas.php');

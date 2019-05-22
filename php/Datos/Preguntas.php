@@ -1,8 +1,7 @@
 <?php
     include_once('conexion.php');
     
-        function ListarPreguntas(){
-    
+        function ListarPreguntas(){    
             $CadenaConexion = ConectarABD();
       
             $Consulta = "Select Id_Preguntas, Pregunta, Tipo_Pregunta from tbl_preguntas";
