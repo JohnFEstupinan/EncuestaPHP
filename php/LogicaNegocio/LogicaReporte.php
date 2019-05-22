@@ -153,6 +153,6 @@
         $pdf->FirmaRecibidoDocente($DatosDocente);
         $pdf->Output();
     }else{
-        header('location: ..\Presentacion\FrmDatos.php');
+        header('location: ..\Presentacion\FrmErrorConsultarDatosEncuestaDocente.php');
     }
 ?>
