@@ -27,7 +27,7 @@
     function PromedioPorGrupo($Id_Docente){
         $CadenaConexion = ConectarABD();
 
-        $Consulta = "SELECT Num_Grupo, AVG(Evaluacion) as 'PromedioGrupo' FROM tbl_copiaen WHERE Id_Docente = $Id_Docente AND Id_Preguntas BETWEEN 1 AND 22 GROUP BY Num_Grupo";
+        $Consulta = "SELECT Num_Grupo, ROUND(AVG(Evaluacion),1) as 'PromedioGrupo' FROM tbl_copiaen WHERE Id_Docente = $Id_Docente AND Id_Preguntas BETWEEN 1 AND 22 GROUP BY Num_Grupo";
 
         $ResultadoConsulta = @mysqli_query($CadenaConexion,$Consulta) 
         or die ("Error al Consultar las Observaciones: ".@mysqli_error($CadenaConexion));
@@ -38,7 +38,7 @@
     function PromedioGeneralDocente($Id_Docente){
         $CadenaConexion = ConectarABD();
 
-        $Consulta = "Select Id_Docente, AVG(Evaluacion) as 'PromedioGeneral' from tbl_copiaen where Id_Preguntas BETWEEN 1 and 22 AND Id_Docente = $Id_Docente";
+        $Consulta = "Select Id_Docente, ROUND(AVG(Evaluacion),1) as 'PromedioGeneral' from tbl_copiaen where Id_Preguntas BETWEEN 1 and 22 AND Id_Docente = $Id_Docente";
 
         $ResultadoConsulta = @mysqli_query($CadenaConexion,$Consulta) 
         or die ("Error al Consultar las Observaciones: ".@mysqli_error($CadenaConexion));
