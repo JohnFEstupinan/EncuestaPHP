@@ -20,5 +20,9 @@
     function ValidarSiExisteEncuestaLogica($Id_Docente){
       return ValidarSiExisteEncuesta($Id_Docente);
     }
+
+    function PromedioPorPreguntaLogica($Id_Docente){
+      return PromedioPorPregunta($Id_Docente);
+    }
     
 ?>
