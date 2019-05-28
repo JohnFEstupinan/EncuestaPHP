@@ -1,9 +1,11 @@
 <!DOCTYPE HTML>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/png" href="..\IconImages\IconoEncuesta.png" />
+        
         <style type="text/css">
             #container {
                 min-width: 310px;
@@ -16,10 +18,11 @@
     </head>
 
     <body>
+ 
         <script src="../js/highcharts.js"></script>
         <script src="../js/exporting.js"></script>
         <script src="../js/export-data.js"></script>
-        <script src="../../series-label.js"></script>
+        <script src="../js/series-label.js"></script>
 
         <div id="container"></div>
 
@@ -54,11 +57,13 @@
                         text: 'Promedio Por Pregunta'
                     }
                 },
+
                 legend: {
                     layout: 'vertical',
                     align: 'right',
                     verticalAlign: 'middle'
                 },
+
                 tooltip: {
                     headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
                     pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
@@ -76,13 +81,15 @@
                         pointStart: 1
                     }
                 },
+
                 series: [{
                     name: 'Promedio',
                     data: [
                         <?php
                         include_once('Datos\conexion.php');
                         $CadenaConexion = ConectarABD();
-                        $Consulta = "SELECT Id_Preguntas, ROUND(AVG(Evaluacion),1) as 'PromedioGrupo' from tbl_copiaen where Id_Docente = 48 AND Id_Preguntas BETWEEN 1 ANd 22 GROUP By Id_Preguntas";
+                        $IdDocente = $_POST['Docente'];  
+                        $Consulta = "SELECT Id_Preguntas, ROUND(AVG(Evaluacion),1) as 'PromedioGrupo' from tbl_copiaen where Id_Docente = $IdDocente AND Id_Preguntas BETWEEN 1 ANd 22 GROUP By Id_Preguntas";
 
                         $ResultadoConsulta = @mysqli_query($CadenaConexion, $Consulta)
                             or die("Error al realizar la consulta: " . @mysqli_error($CadenaConexion));

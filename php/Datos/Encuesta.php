@@ -62,6 +62,17 @@
             return false;
         }
     }
+
+    function PromedioPorPregunta($Id_Docente){
+        $CadenaConexion = ConectarABD();
+
+        $Consulta = "SELECT Id_Preguntas as 'IdPregunta' ,ROUND(AVG(Evaluacion),1) as 'PromedioGeneralPregunta' from tbl_copiaen where Id_Docente = $Id_Docente  AND Id_Preguntas BETWEEN 1 and 22 GROUP BY Id_Preguntas";
+        
+        $ResultadoConsulta = @mysqli_query($CadenaConexion,$Consulta)
+        or die ("Error en la consulta: ".@mysqli_error($CadenaConexion));
+        
+        return $ResultadoConsulta;
+    }
       
     @mysqli_close($CadenaConexion);
 ?>
