@@ -10,6 +10,7 @@
     <body>
         <div class="ContenedorFormulario">
             <div class="ContenedorTitulo">
+                <img src="IconImages\IconoEncuestaColor.png"/>
                 <p class="TituloEncuesta">¡..Bienvenido..!</p>
             </div>
             <div class="EncabezadoFormulario">
