@@ -11,8 +11,9 @@
     <body>
         <div class="ContenedorFormulario">
             <div class="EncabezadoFormulario">
+                <img src="..\..\IconImages\IconoExito.png"/>
                 <h2>Muchas Gracias</h2>
-                <h2>Termino la Encuesta</h2>
+                <h2>Término la Encuesta</h2>
             </div> 
             <form method="POST" class="FormularioVolver" action="..\..\index.php" id="FormularioGrupo">
                  <div class="ContenedorBoton">

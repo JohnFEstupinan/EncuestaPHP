@@ -10,7 +10,7 @@
             or die ("Error en la consulta, verifique: ".@mysqli_error($CadenaConexion));
             
            While($Resultado = @mysqli_fetch_array($ResultadoConsulta,MYSQLI_ASSOC)){
-                return $Resultado['NomApell_Docente'];
+                return utf8_decode($Resultado['NomApell_Docente']);
             }           
          
         }

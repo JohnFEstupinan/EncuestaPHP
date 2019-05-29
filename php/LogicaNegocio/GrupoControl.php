@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="../../css/estilosVolverAEncuesta.css" type="text/css" />
         <link rel="icon" type="image/png" href="..\..\IconImages\IconoEncuesta.png" />
         <title>
-            Sistema de Encuestas - Reporte Encuesta Evaluacion Docente
+            Sistema de Encuestas
         </title>
     </head>
     <body>

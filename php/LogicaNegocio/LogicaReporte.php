@@ -4,7 +4,6 @@
     include_once('LogicaDocente.php');
 
     $IdDoc = $_POST['Docente'];   
-    //8$IdDoc = 68;  
     $PromedioPorGrupo =PromedioPorGrupoLogica($IdDoc);
     $Resultado = ConsultarObservacionesDocenteLogica($IdDoc);
     $PromedioGeneral = PromedioGeneralDocenteLogica($IdDoc);
@@ -22,7 +21,7 @@
             $this->SetFont('Helvetica','B',8);
             $this->SetTextColor(31,78,120);
         
-            $this->Cell(0,0,'Sistema de Encuestas - Reporte Encuesta Evaluacion Docente - '.date("d/M/y"),0,0,'C');
+            $this->Cell(0,0,utf8_decode('Sistema de Encuestas - Reporte Encuesta Evaluación Docente - ').date("d/M/y"),0,0,'C');
             $this->Image("..\..\IconImages\IconoEncuesta.png" , 185 ,5, 8 , 8 , "png");
                 
         }        
@@ -35,7 +34,7 @@
             $this->SetFont('Helvetica','IB',10);
 
             $this->Cell(9);
-            $this->Cell(0,10,'Pagina '.$this->PageNo().'/{nb}',0,0,'C');
+            $this->Cell(0,10,utf8_decode('Página ').$this->PageNo().'/{nb}',0,0,'C');
 
         }
 
@@ -54,7 +53,7 @@
                 $this->SetFillColor(255,0,0);
                 $this->SetTextColor(0);
                 $this->SetFont('Helvetica','',8); 
-                $this->Cell(95,5,$row['NomApell_Docente'],1,0,'C');   
+                $this->Cell(95,5,utf8_decode($row['NomApell_Docente']),1,0,'C');   
             }
             $this->Ln();  
         }
@@ -98,7 +97,7 @@
                         $this->SetFillColor(255,0,0);
                         $this->SetTextColor(0);
                         $this->SetFont('Helvetica','',8);    
-                        $this->Cell(185,5,"*    ".$row['Evaluacion'],1,1,'');
+                        $this->Cell(185,5,utf8_decode("*    ".$row['Evaluacion']),1,1,'');
                     }else{
                         $this->SetFillColor(219,219,219);
                         $this->SetTextColor(0);
@@ -149,7 +148,7 @@
             $this->SetFont('Helvetica','B',11);
 
             $this->Cell(50);
-            $this->Cell(46.5,5,'Numero de Pregunta',1,0,'C',1);
+            $this->Cell(46.5,5,utf8_decode('Número de Pregunta'),1,0,'C',1);
             $this->Cell(0.2);
             $this->Cell(46.5,5,'Promedio por Pregunta',1,1,'C',1);
 
@@ -176,7 +175,7 @@
             foreach($Datos_Docente as $row){
                 $this->SetTextColor(0);
                 $this->SetFont('Helvetica','B',8);
-                $this->Text(85,284,$row['NomApell_Docente']);   
+                $this->Text(85,284,utf8_decode($row['NomApell_Docente']));   
             }
         }
             

@@ -38,7 +38,7 @@
                 ?>  
                 <tr>
                     <td class="TipoDeDatoP"> <?php echo $IdPregunta; ?></td>
-                    <td class="TipoDeDato"> <?php echo $row['Pregunta'];?></td>
+                    <td class="TipoDeDato"> <?php echo utf8_decode($row['Pregunta']);?></td>
                     <td>
                         <select name="Respuesta[<?php echo $IdPregunta;?>]" class="ComboValoracion">                       
                             <option value="1">Nunca</option>

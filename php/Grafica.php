@@ -1,5 +1,10 @@
 <!DOCTYPE HTML>
 
+                            
+                            
+                      
+                        
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -42,7 +47,7 @@
                     },
                     categories: [
 
-                        <?php for ($i = 1; $i <= 22; $i++) {
+                        <?php for ($i = 0; $i <= 22; $i++) {
                             echo "$i" . ',';
                         }
                         ?>
@@ -95,13 +100,14 @@
                             or die("Error al realizar la consulta: " . @mysqli_error($CadenaConexion));
                             
                         ?>
-                        <?php if(@mysqli_fetch_row($ResultadoConsulta)!=""){ ?>
-                            <?php while ($Fila = mysqli_fetch_array($ResultadoConsulta, MYSQLI_BOTH)) { ?>                         
+                        <?php if(@mysqli_num_rows($ResultadoConsulta)>0){ ?>
+                            <?php while ($Fila = @mysqli_fetch_array($ResultadoConsulta, MYSQLI_BOTH)) { ?>                         
                                 <?php echo  $Fila[1]; ?>,
                             <?php   } ?>
                         <?php }else{
                             header('location: Presentacion\FrmErrorConsultarGrafica.php');
                         }?>
+                   
                     ]
                 }],
 
