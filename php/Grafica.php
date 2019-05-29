@@ -1,10 +1,4 @@
 <!DOCTYPE HTML>
-
-                            
-                            
-                      
-                        
-
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -88,7 +82,7 @@
                 },
 
                 series: [{
-                    name: 'Promedio',
+                    name: 'Promedio General<br> por Pregunta',
                     data: [
                         <?php
                         include_once('Datos\conexion.php');
