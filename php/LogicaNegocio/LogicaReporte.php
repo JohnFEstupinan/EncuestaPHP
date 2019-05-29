@@ -4,11 +4,13 @@
     include_once('LogicaDocente.php');
 
     $IdDoc = $_POST['Docente'];   
+    //8$IdDoc = 68;  
     $PromedioPorGrupo =PromedioPorGrupoLogica($IdDoc);
     $Resultado = ConsultarObservacionesDocenteLogica($IdDoc);
     $PromedioGeneral = PromedioGeneralDocenteLogica($IdDoc);
     $DatosDocente = ObtenerDatosDocenteLogica($IdDoc);
     $ValidaExisteEncuestas =  ValidarSiExisteEncuestaLogica($IdDoc);
+    $PromedioPorPreguntas = PromedioPorPreguntaLogica($IdDoc);
     class PDF extends FPDF{
         
         function Header(){
@@ -26,14 +28,15 @@
         }        
         
         function Footer(){
-            $this->SetY(-20);
+            
             $this->SetY(285);
 
             $this->SetTextColor(31,78,120);    
             $this->SetFont('Helvetica','IB',10);
-                
+
+            $this->Cell(9);
             $this->Cell(0,10,'Pagina '.$this->PageNo().'/{nb}',0,0,'C');
-            $this->SetY(-20);
+
         }
 
         function TablaDatosDocente($Datos_Docente){
@@ -45,21 +48,19 @@
             $this->SetFont('Helvetica','B',12);
 
             $this->Cell(185,5,'Datos del Docente',1,1,'C',1);
-            $this->Cell(90,5,'Nombre',1,1,'C',1);
+            $this->Cell(90,5,'Nombres y Apellidos',1,0,'C',1);
 
             foreach($Datos_Docente as $row){
                 $this->SetFillColor(255,0,0);
                 $this->SetTextColor(0);
-                $this->SetFont('Helvetica','',8);
-                $this->SetY(44.99); 
-                $this->SetX(100);         
+                $this->SetFont('Helvetica','',8); 
                 $this->Cell(95,5,$row['NomApell_Docente'],1,0,'C');   
             }
             $this->Ln();  
         }
 
         function TablaPromedioPorCurso($PromedioPorGrupo){
-            $this->Ln();
+
             $this->Ln();
             $this->SetFillColor(31,78,120);
             $this->SetTextColor(255);
@@ -68,25 +69,20 @@
             $this->SetFont('Helvetica','B',12);
 
             $this->Cell(185,5,'Promedio Por Grupo',1,1,'C',1);
-            $this->Cell(95,5,'Grupo',1,1,'C',1);
-            $this->SetY(65); 
-            $this->SetX(105);
+            $this->Cell(95,5,'Grupo',1,0,'C',1);
             $this->Cell(90,5,'Promedio',1,1,'C',1);
-
 
             foreach($PromedioPorGrupo as $row){
                 $this->SetFillColor(255,0,0);
                 $this->SetTextColor(0);
                 $this->SetFont('Helvetica','',8);
-
                 $this->Cell(95,5,$row['Num_Grupo'] ,1,0,'C');  
                 $this->Cell(90,5,$row['PromedioGrupo'] ,1,1,'C');
-                }   
+            }   
         }
 
         function TablaObservacionesDocente($Resultado){
 
-            $this->Ln();
             $this->Ln();
             $this->SetFillColor(31,78,120);
             $this->SetTextColor(255);
@@ -96,18 +92,27 @@
 
             $this->Cell(185,5,'Observaciones al Docente',1,1,'C',1);
 
-            foreach($Resultado as $row){  
-                $this->SetFillColor(255,0,0);
-                $this->SetTextColor(0);
-                $this->SetFont('Helvetica','',8);
+                foreach($Resultado as $row){
+                    
+                    if($row['Evaluacion']!=""){
+                        $this->SetFillColor(255,0,0);
+                        $this->SetTextColor(0);
+                        $this->SetFont('Helvetica','',8);    
+                        $this->Cell(185,5,"*    ".$row['Evaluacion'],1,1,'');
+                    }else{
+                        $this->SetFillColor(219,219,219);
+                        $this->SetTextColor(0);
+                        $this->SetFont('Helvetica','',10);    
+                        $this->Cell(185,5,'Sin Observaciones',1,0,'C',1);
+                        $this->Ln();
+                        break;
+                    }                    
 
-                $this->Cell(185,5,$row['Evaluacion'] ,1,1,'');
-            }
+                }
         }
 
         function TablaPromedioGeneral($PromedioGeneral){
 
-            $this->Ln();
             $this->Ln();
             $this->SetFillColor(31,78,120);
             $this->SetTextColor(255);
@@ -115,27 +120,63 @@
             $this->SetLineWidth(.3);
             $this->SetFont('Helvetica','B',12);
 
-            $this->Cell(93,5,'Calificacion Final ',1,1,'C',1);
-
-            foreach($PromedioGeneral as $row){  
-                $this->SetFillColor(255,0,0);
+            $this->Cell(50);
+            $this->Cell(93,5,'Calificacion Final',1,1,'C',1);
+            
+            foreach($PromedioGeneral as $row){    
+                $this->Cell(50); 
                 $this->SetTextColor(0);
                 $this->SetFont('Helvetica','',8);
-                $this->SetY(115);
-                $this->SetX(103);
-                $this->Cell(92,5,$row['PromedioGeneral'] ,1,1,'C');
+
+                if($row['PromedioGeneral']>=3){                   
+                    $this->SetFillColor(169,208,142);
+                    $this->Cell(93,5,$row['PromedioGeneral'],1,1,'C',1);
+                }   else{                   
+                    $this->SetFillColor(255,129,129);
+                    $this->Cell(93,5,$row['PromedioGeneral'],1,1,'C',1);
+                }       
+            }
+        }
+
+        function TablaPromedioPorPreguntas($PromedioPorPreguntas){
+
+            $this->Ln();
+            $this->Ln();
+            $this->SetFillColor(31,78,120);
+            $this->SetTextColor(255);
+            $this->SetDrawColor(128,128,128);
+            $this->SetLineWidth(.3);
+            $this->SetFont('Helvetica','B',11);
+
+            $this->Cell(50);
+            $this->Cell(46.5,5,'Numero de Pregunta',1,0,'C',1);
+            $this->Cell(0.2);
+            $this->Cell(46.5,5,'Promedio por Pregunta',1,1,'C',1);
+
+            
+            foreach($PromedioPorPreguntas as $row){
+                $this->Cell(50);
+                
+                $this->SetTextColor(0);
+                $this->SetFont('Helvetica','',8);
+                $this->SetFillColor(255,255,255);
+                $this->Cell(46.5,5,$row['IdPregunta'],1,0,'C',1);                
+                $this->Cell(0.2);
+                $this->Cell(46.5,5,$row['PromedioGeneralPregunta'],1,1,'C',1); 
             }
         }
 
         function FirmaRecibidoDocente($Datos_Docente){
 
-            $this->Line(73,265,135,265);
+            $this->Line(77,276,135,276);
             $this->SetDrawColor(128,128,128);
-            $this->Text(93,270,"Firma Recibido");
+           
+            $this->Text(97,280,"Firma Recibido");
+
             foreach($Datos_Docente as $row){
                 $this->SetTextColor(0);
-                $this->SetFont('Helvetica','',8);
-                $this->Text(83,275,$row['NomApell_Docente']);   
+                $this->SetFont('Helvetica','B',8);
+                $this->Text(85,284,$row['NomApell_Docente']);   
             }
         }
             
@@ -145,11 +186,12 @@
         $pdf=new PDF();
         $pdf->AliasNbPages();
         $pdf->AddPage();
-        $pdf->SetY(40);
+        $pdf->SetY(30);
         $pdf->TablaDatosDocente($DatosDocente);
         $pdf->TablaPromedioPorCurso($PromedioPorGrupo,$Resultado,$PromedioGeneral);
         $pdf->TablaObservacionesDocente($Resultado);
-        $pdf->TablaPromedioGeneral($PromedioGeneral);
+        $pdf->TablaPromedioPorPreguntas($PromedioPorPreguntas);
+        $pdf->TablaPromedioGeneral($PromedioGeneral);  
         $pdf->FirmaRecibidoDocente($DatosDocente);
         $pdf->Output();
     }else{
