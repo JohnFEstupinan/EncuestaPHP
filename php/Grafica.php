@@ -93,10 +93,15 @@
 
                         $ResultadoConsulta = @mysqli_query($CadenaConexion, $Consulta)
                             or die("Error al realizar la consulta: " . @mysqli_error($CadenaConexion));
+                            
                         ?>
-                        <?php while ($Fila = mysqli_fetch_array($ResultadoConsulta, MYSQLI_BOTH)) { ?>
-                            <?php echo  $Fila[1]; ?>,
-                        <?php   } ?>
+                        <?php if(@mysqli_fetch_row($ResultadoConsulta)!=""){ ?>
+                            <?php while ($Fila = mysqli_fetch_array($ResultadoConsulta, MYSQLI_BOTH)) { ?>                         
+                                <?php echo  $Fila[1]; ?>,
+                            <?php   } ?>
+                        <?php }else{
+                            header('location: Presentacion\FrmErrorConsultarGrafica.php');
+                        }?>
                     ]
                 }],
 
