@@ -3,8 +3,8 @@
     include_once('..\..\Reportes\fpdf.php');
     include_once('LogicaDocente.php');
 
-    //$IdDoc = $_POST['Docente'];   
-    $IdDoc = 68;  
+    $IdDoc = $_POST['Docente'];   
+    //8$IdDoc = 68;  
     $PromedioPorGrupo =PromedioPorGrupoLogica($IdDoc);
     $Resultado = ConsultarObservacionesDocenteLogica($IdDoc);
     $PromedioGeneral = PromedioGeneralDocenteLogica($IdDoc);
