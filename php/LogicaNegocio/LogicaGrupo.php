@@ -28,15 +28,15 @@
                 <tbody>
                     <tr>
                         <td class="Dato">Grupo:</td>
-                        <td class="TipoDeDato"> <?php echo $Grupo ?> </td>
+                        <td class="TipoDeDato"> <?php echo utf8_decode($Grupo) ?> </td>
                     </tr>
                     <tr>
                         <td class="Dato">Competencia:</td>
-                        <td class="TipoDeDato"> <?php echo $NombreCompetencia ?> </td>
+                        <td class="TipoDeDato"> <?php echo utf8_decode($NombreCompetencia) ?> </td>
                     </tr>
                     <tr>
                         <td class="Dato">Docente:</td>
-                        <td class="TipoDeDato"> <?php echo $NombreDocente ?> </td>
+                        <td class="TipoDeDato"> <?php echo utf8_decode($NombreDocente) ?> </td>
                     </tr>                
                 </tbody>
             </table>

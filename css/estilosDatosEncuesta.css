@@ -3,10 +3,11 @@ body{
     font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 }
 
+
 .DatosEncuesta{
     margin-top: 0%;
     width: 100%;
-    border: none;
+    border-radius: 10px;
 }
 
 .TituloDatosEncuesta{

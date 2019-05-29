@@ -10,6 +10,7 @@
     <body>
         <div class="ContenedorFormulario">
             <div class="ContenedorTitulo">
+                <img src="..\..\IconImages\IconoRealizarEncuesta.png" alt=""/>
                 <p class="TituloEncuesta">Realizar Encuesta</p>
             </div>
             <div class="EncabezadoFormulario">
@@ -20,7 +21,7 @@
                 <input class="txtGrupo" id="txtGrupo" name="Grupo" type="text" required pattern="[0-9]{1,99}" title="NO ingrese letras o cualquier caracter especial.¡SOLO NÚMEROS!">
                 
                 <div class="ContenedorBoton">
-                     <input class="btnEnviar" type="submit" name="Ingresar"  value="Ingresar">
+                     <input class="btnEnviar" type="submit" name="Ingresar"  value="Realizar Encuesta">
                 </div>
 
             </form>
